@@ -48,6 +48,7 @@ router.post('/', function(req, res, next) {
     timeZone: timeZone,
     time: time,
   });
+  console.log('appointment', appointment);
   appointment.save().then(function() {
     res.redirect('/');
   });
