@@ -48,7 +48,12 @@ router.post('/', function(req, res, next) {
     timeZone: timeZone,
     time: time,
   });
-  console.log('appointment', appointment);
+  console.log('name', typeof appointment.name);
+  console.log('phoneNumber', typeof appointment.phoneNumber);
+  console.log('notification', typeof appointment.notification);
+  console.log('timeZone', typeof appointment.timeZone);
+  console.log('time', typeof appointment.time);
+
   appointment.save().then(function() {
     res.redirect('/');
   });
