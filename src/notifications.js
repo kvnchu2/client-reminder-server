@@ -39,7 +39,7 @@ async function sendNotification(appointment) {
     to: `+ ${appointment.phoneNumber}`,
     from: cfg.twilioPhoneNumber,
     /* eslint-disable max-len */
-    body: `Hi ${appointment.name}. Just a reminder that you have an appointment coming up.`,
+    body: `Hi ${appointment.name}. Just a reminder that you have an appointment coming up with Kevin the Kinesiologist at 2:30pm. You are welcome to arrive earlier to get changed.`,
     /* eslint-enable max-len */
   };
 
