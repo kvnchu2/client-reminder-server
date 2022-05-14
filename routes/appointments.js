@@ -3,7 +3,8 @@
 const express = require('express');
 const momentTimeZone = require('moment-timezone');
 const moment = require('moment');
-const { Appointment } = require('../src/db');
+// const { Appointment } = require('../src/db');
+const { Appointment } = require('../models/Appointment');
 
 /* eslint-disable new-cap */
 const router = express.Router();
