@@ -5,7 +5,8 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const connectDB = require('./db/Connection');
+// const connectDB = require('./db/Connection');
+const mongoose = require("mongoose");
 
 const appointments = require('./routes/appointments');
 
@@ -24,7 +25,20 @@ app.use(
 );
 app.use(cookieParser());
 
-connectDB();
+mongoose.connect(
+  `mongodb+srv://kchu2:123@cluster0.1lc8w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  console.log("Connected successfully");
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.locals.moment = require('moment');
 
